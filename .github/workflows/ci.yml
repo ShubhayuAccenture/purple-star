@@ -1,12 +1,12 @@
 name: Continuous Integration
 
+#workflow run trigger events
 on: 
- #workflow run trigger events
-    push:
-      branches:
-        - main
-      paths:
-        - '!*.md'
+  push:
+    branches:
+    - main
+    paths:
+    - '!*.md'
 
 jobs:
   test:
