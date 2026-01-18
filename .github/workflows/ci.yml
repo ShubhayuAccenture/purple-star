@@ -1,7 +1,8 @@
 name: Continuous Integration
 
 #workflow run trigger events
-#on: 
+on:
+  workflow_dispatch: 
   #push:
   #  branches:
   #  - main
