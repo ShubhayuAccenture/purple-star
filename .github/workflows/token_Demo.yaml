@@ -1,0 +1,21 @@
+name: "Token Demo"
+on:
+  issues:
+    types:
+      - opened  # Trigger the workflow when a new issue is opened
+jobs:
+  add-comment:
+    runs-on: ubuntu-latest
+# Set permissions for this job
+    permissions:
+      issues: write  # Required to add comments to issues
+    steps:
+      - name: Add comment to the new issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      # GitHub automatically provides a token
+          GH_REPO: ${{ github.repository }}          # Repository name (owner/repo)
+          NUMBER: ${{ github.event.issue.number }}   # Issue number from the event payload
+          BODY: ":sparkles: Thank you for your contribution!"  # Comment text
+        run: |
+          # Use GitHub CLI to add a comment to the new issue
+          gh issue comment $NUMBER --repo $GH_REPO --body "$BODY"
