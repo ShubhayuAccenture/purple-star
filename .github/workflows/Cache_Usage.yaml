@@ -54,16 +54,11 @@ jobs:
       # ----------------------------------
       # ...
 
-      - name: Fetch prime cache path
-        id: get-prime-cache-path
-        run: |
-          echo "go-mod=$(go env GOMODCACHE)" >> "$GITHUB_OUTPUT"
-
-      - name: Cache prime modules
+      - name: Cache or retrive the generated primes
         uses: actions/cache@v4
         with:
-          path: ${{ steps.get-prime-cache-path.outputs.go-mod }}
-          key: go-mods-${{ hashFiles('**/go.sum') }}
+          path: primes.txt
+          key: primes-${{ hashFiles('**/primes.txt')}}
 
       - name: Store the generated primes as an artifact
         uses: actions/upload-artifact@v4
