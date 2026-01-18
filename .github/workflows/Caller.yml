@@ -1,0 +1,10 @@
+name: "Using a Reusable Workflow"
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  test:
+    uses: ShubhayuAccenture/purple-star/.github/workflows/Reusable_Workflow.yml@main
+    with:
+      actor: ${{github.actor}}
