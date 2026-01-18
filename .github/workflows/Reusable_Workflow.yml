@@ -4,8 +4,9 @@ on:
   workflow_call:
     inputs:
       actor:
-        description: "The person who will receive the greeting"
-          required: true
+        #description: "The person who will receive the greeting"
+        required: true
+        type: string
         
 
 jobs:
