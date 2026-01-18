@@ -3,7 +3,7 @@ name: "Lesson 2 - Exercise 4"
 on:
   push:
     branches:
-      - main
+      #- main
       # Match the release branches: releases/1, releases/2, etc.
       - "releases/[0-9]"
 
